@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Random Name Picker</title>
+  <title>Random Video Picker</title>
 
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/foundation.css" />
@@ -13,7 +13,7 @@
   <script src="js/jquery-latest.min.js"></script>
 
 <style>
-#values { position:relative;font-size:400%;text-align:center;margin: 0 auto;z-index:0; }
+#values { position:relative;font-size:200%;text-align:center;margin: 0 auto;z-index:0; }
 .name { overflow:hidden;display:block; }
 #names { display:none;padding:5px; }
 #namesbox { min-height:400px;font-size:32px;color:#333;resize:none;border:1px solid #F39C12; }
@@ -30,9 +30,8 @@ body { background:#F1C40F url(img/bg-noise-orange.png); }
   <div class="full-head" style="width:100%;background:#111 url(img/header-bg.png) repeat-x center top;border-bottom:1px solid #D35400;">
 	<div class="row">
 		<div class="large-12 columns" style="padding-top:50px;background:#111 url(img/header-bg.png) repeat-x center top;z-index:20;">
-		<ul class="button-group even-4">
-      <li><a href="index.html" class="alert button" id="reset">Reset</a></li>
-			<li><button class="button" id="list" onclick="namelist();">Name List</button></li>
+		<ul class="button-group even-3">
+			<li><button class="button" id="list" onclick="namelist();">Video List</button></li>
 			<li><button class="button" id="save" onclick="save();">Save &amp; Update</button></li>
 			<li><button class="success button" id="go" onclick="go();">GO!</button></li>
     </ul>
@@ -42,9 +41,7 @@ body { background:#F1C40F url(img/bg-noise-orange.png); }
 
 	<div class="row">
 		<div class="large-12 columns">
-			<h3 style="text-align:center;margin-top:30px;" id="headline">Let's see who is The Lucky One?</h3>
-			
-			<div id="varnote"><img src="img/logo.png"><div class="copyright">&copy; Coded by <strong>Heiswayi Nrird</strong>, June 2013</div></div>
+			<h3 style="text-align:center;margin-top:30px;" id="headline">What video is next?!?!</h3>
 			
       <div id="popdown">
       <div id="names" class="inbox"><textarea name="namesbox" id="namesbox"></textarea></div>
@@ -67,80 +64,27 @@ body { background:#F1C40F url(img/bg-noise-orange.png); }
   
 <script>
 var text;
-var names = new Array('Barbara McFell',
-                      'Tempo McKeteketly',
-                      'Maonga Irpaae',
-                      'Jose Tunisia',
-                      'Bob Bobson',
-                      'Harold Greenoff',
-                      'Jeff Penn',
-                      'Ewan Freedom',
-                      'Benjamin Turkin',
-                      'Robert Harper',
-                      'Sally Cladwell',
-                      'Gregory Tomson',
-                      'Benita Dano',
-                      'Tameka Chea',
-                      'Fernando Guntrum',
-                      'Cody Devita',
-                      'Margery Moloney',
-                      'Jessie Wagar',
-                      'Jessie Burkhard',
-                      'Cody Lamotte',
-                      'Tabatha Cantley',
-                      'Hugh Fullwood',
-                      'Emilia Janusz',
-                      'Erik Taketa',
-                      'Lenore Laughter',
-                      'Kathrine Palazzo',
-                      'Lonnie Garron',
-                      'Tyrone Shott',
-                      'Gay Duble',
-                      'Pearlie Newberg',
-                      'Clinton Rayl',
-                      'Louisa Strey',
-                      'Saundra Ingenito',
-                      'Fernando Jenkin',
-                      'Maricela Tonkin',
-                      'Allie Borjas',
-                      'Clinton Rickenbacker',
-                      'Cody Golay',
-                      'Jerri Tienda',
-                      'Nita Pippen',
-                      'Alejandra Bonhomme',
-                      'Nelson Eguia',
-                      'Rae Velasques',
-                      'Boyce Edeker',
-                      'Cedrick Culotti',
-                      'Elenora Nagindas',
-                      'Arletta Miran',
-                      'Alica Knudsvig',
-                      'Von Ostroot',
-                      'Tomika Nuesca',
-                      'Felton Pattinson',
-                      'Cristopher Laper',
-                      'Shonna Parrotta',
-                      'Sarina Macurdy',
-                      'Waylon Companie',
-                      'Shon Carratura',
-                      'Jae Kneser',
-                      'Janett Papiernik',
-                      'Lynwood Bellar',
-                      'Jeramy Contopoulos',
-                      'Hong Nederostek',
-                      'Gigi Mccarn',
-                      'Sid Mursko',
-                      'Bielser',
-                      'Jospeh Lustberg',
-                      'Spring Luckinbill',
-                      'Ciera Chionchio',
-                      'Marleen Litchard',
-                      'Eldridge Brynga',
-                      'Leif Dinho',
-                      'Gigi Kornblatt',
-                      'Idell Chagollan',
-                      'Michale Mcclod'
-                      );
+var names = new Array("https://www.youtube.com/watch?v=rCwn1NTK-50",
+"https://www.youtube.com/watch?v=Bpol6LDuJbU",
+"https://www.youtube.com/watch?v=so8lNYggnaw",
+"https://www.youtube.com/watch?v=mCd8QjxapXA",
+"https://www.youtube.com/watch?v=7Gt0uaxf-Uo",
+"https://www.youtube.com/watch?v=7aXLyZIfDAE",
+"https://www.youtube.com/watch?v=WcYDse5MFGc",
+"https://www.youtube.com/watch?v=HjPv1xNx9TA",
+"https://www.youtube.com/watch?v=0Gkqzxss8Ss",
+"https://www.youtube.com/watch?v=_KkR8lZjiq0",
+"https://www.youtube.com/watch?v=iENQXIQ8wH0",
+"https://www.youtube.com/watch?v=nwdzGBG-0dw",
+"https://www.youtube.com/watch?v=U80ebi4AKgs",
+"https://www.youtube.com/watch?v=NKZ2rr4XMTA",
+"https://www.youtube.com/watch?v=iENQXIQ8wH0",
+"https://www.youtube.com/watch?v=2dvI2m1_6_s",
+"https://www.youtube.com/watch?v=Lxp_3000h_U",
+"https://www.youtube.com/watch?v=TcIhL1LZP4g",
+"https://www.youtube.com/watch?v=1VM2eLhvsSM",
+"https://www.youtube.com/watch?v=S2nBBMbjS8w"
+);
 
 function reset(){
   // re-enable go button
@@ -152,86 +96,34 @@ function reset(){
     namesbreak = namesbreak.replace(/%20/g,' ');          
     }
     else   {
-      var names = new Array('Barbara McFell',
-                      'Tempo McKeteketly',
-                      'Maonga Irpaae',
-                      'Jose Tunisia',
-                      'Bob Bobson',
-                      'Harold Greenoff',
-                      'Jeff Penn',
-                      'Ewan Freedom',
-                      'Benjamin Turkin',
-                      'Robert Harper',
-                      'Sally Cladwell',
-                      'Gregory Tomson',
-                      'Benita Dano',
-                      'Tameka Chea',
-                      'Fernando Guntrum',
-                      'Cody Devita',
-                      'Margery Moloney',
-                      'Jessie Wagar',
-                      'Jessie Burkhard',
-                      'Cody Lamotte',
-                      'Tabatha Cantley',
-                      'Hugh Fullwood',
-                      'Emilia Janusz',
-                      'Erik Taketa',
-                      'Lenore Laughter',
-                      'Kathrine Palazzo',
-                      'Lonnie Garron',
-                      'Tyrone Shott',
-                      'Gay Duble',
-                      'Pearlie Newberg',
-                      'Clinton Rayl',
-                      'Louisa Strey',
-                      'Saundra Ingenito',
-                      'Fernando Jenkin',
-                      'Maricela Tonkin',
-                      'Allie Borjas',
-                      'Clinton Rickenbacker',
-                      'Cody Golay',
-                      'Jerri Tienda',
-                      'Nita Pippen',
-                      'Alejandra Bonhomme',
-                      'Nelson Eguia',
-                      'Rae Velasques',
-                      'Boyce Edeker',
-                      'Cedrick Culotti',
-                      'Elenora Nagindas',
-                      'Arletta Miran',
-                      'Alica Knudsvig',
-                      'Von Ostroot',
-                      'Tomika Nuesca',
-                      'Felton Pattinson',
-                      'Cristopher Laper',
-                      'Shonna Parrotta',
-                      'Sarina Macurdy',
-                      'Waylon Companie',
-                      'Shon Carratura',
-                      'Jae Kneser',
-                      'Janett Papiernik',
-                      'Lynwood Bellar',
-                      'Jeramy Contopoulos',
-                      'Hong Nederostek',
-                      'Gigi Mccarn',
-                      'Sid Mursko',
-                      'Bielser',
-                      'Jospeh Lustberg',
-                      'Spring Luckinbill',
-                      'Ciera Chionchio',
-                      'Marleen Litchard',
-                      'Eldridge Brynga',
-                      'Leif Dinho',
-                      'Gigi Kornblatt',
-                      'Idell Chagollan',
-                      'Michale Mcclod'
-                      );
+      var names = new Array("https://www.youtube.com/watch?v=rCwn1NTK-50",
+"https://www.youtube.com/watch?v=Bpol6LDuJbU",
+"https://www.youtube.com/watch?v=so8lNYggnaw",
+"https://www.youtube.com/watch?v=mCd8QjxapXA",
+"https://www.youtube.com/watch?v=7Gt0uaxf-Uo",
+"https://www.youtube.com/watch?v=7aXLyZIfDAE",
+"https://www.youtube.com/watch?v=WcYDse5MFGc",
+"https://www.youtube.com/watch?v=HjPv1xNx9TA",
+"https://www.youtube.com/watch?v=0Gkqzxss8Ss",
+"https://www.youtube.com/watch?v=_KkR8lZjiq0",
+"https://www.youtube.com/watch?v=iENQXIQ8wH0",
+"https://www.youtube.com/watch?v=nwdzGBG-0dw",
+"https://www.youtube.com/watch?v=U80ebi4AKgs",
+"https://www.youtube.com/watch?v=NKZ2rr4XMTA",
+"https://www.youtube.com/watch?v=iENQXIQ8wH0",
+"https://www.youtube.com/watch?v=2dvI2m1_6_s",
+"https://www.youtube.com/watch?v=Lxp_3000h_U",
+"https://www.youtube.com/watch?v=TcIhL1LZP4g",
+"https://www.youtube.com/watch?v=1VM2eLhvsSM",
+"https://www.youtube.com/watch?v=S2nBBMbjS8w"
+);
     for(var i in names){
       name = names[i];
-      if (name == "" || typeof(name) == undefined){}else{
+      if (name == "" || name == " " || name == "" || typeof(name) == undefined){}else{
          namesbreak = namesbreak + name + "\n";
       }
     }
+    console.log(names)
   }
   $("#namesbox").val(namesbreak);
 }
@@ -260,7 +152,7 @@ function save(){
         savenames = $("#namesbox").val();
         savenames = savenames.replace(/\n\r?/g, '101');
         $('#headline').fadeOut();
-        $('#headline').text('The name list is saved and updated.').fadeIn();
+        $('#headline').text('The video list is saved and updated.').fadeIn();
         $("#names").show();
         $('#namesbox').attr('disabled','disabled');
 }
@@ -268,7 +160,7 @@ function save(){
 function namelist(){
         $("#varnote").hide();
         $('#namesbox').removeAttr('disabled','disabled');
-        $('#headline').text('Configure name list');
+        $('#headline').text('Videos');
         $("#popdown").show();
         $("#values").hide();
         $("#names").show();
@@ -282,11 +174,9 @@ function go(){
   $('#go').attr('disabled','disabled');
   $('#list').attr('disabled','disabled');
   $('#save').attr('disabled','disabled');
-  $('#headline').slideUp();
+  $('#headline').hide();
   $('#namesbox').slideDown();
-
-  var count = 1;
-  count = 1;
+  var count = names.length
   $("div").remove("#result1");
   names = $("#namesbox").val();
   if(document.all) { // IE
@@ -301,7 +191,7 @@ function go(){
   $("div").remove(".name");
   $("div").remove(".extra");
   $("#playback").html("");
-  newtop = names.length * 200 * -1;
+  newtop = names.length + 200;
   //$('#values').css({top: -300});
   $('#values').css({top: + newtop});	
   names.sort( randOrd );
@@ -311,11 +201,12 @@ function go(){
   //alert(newtop);
   for(var i in names){
     if (names[i] == "" || typeof(names[i]) == undefined){
-      count = count-1;
     } else {
       name = names[i];
+      index = parseInt(i)+1
       //console.log(name);
-      $('#values').append('<div id=result'+count+' class=name>'+name+'</div>');
+      $('#values').append('<div id=result'+index+' class=name>'+name+'</div>');
+     
     }
     count = count+1;
   }
@@ -334,16 +225,18 @@ function go(){
     count = count+1;
   }
   text = $('#result1').text()
-  $('#values').animate({top: '+176'},5000);
-
+  $('#result1').removeClass('name');
+  $('.name').hide();
   // make it stand out
-  setTimeout("standout(text)",5000);
+  setTimeout("standout(text)",500);
   //setTimeout("$('#playback').hide('slow')",11005);
 }
 
 function standout(text){
 
         $('#result1').removeClass('name');
+        $('#result1').html('');
+        $('#result1').append( '<p><a href="'+text+'"target="_blank" rel="noopener noreferrer">'+text+'</a></p>' );
         $('.name').animate({opacity: .25});
         $('#result1').animate({height: '+=60px'});
         $('#result1').append('<div class="extra"><a class="small alert button" href="#" onClick="removevictim();">Remove name from list</a></div>');
@@ -358,13 +251,15 @@ function removevictim(){
 	// Removing victim from array and UI
 	// names = names.filter(function(){ return true});
 	// Rewriting namesbox contents
-	var nameupdated = "";
+	var nameupdated = ""
 	for(var i in names){
 		name = names[i];
-                if (name == "" || name == text || typeof(name) == undefined){}else{
-			nameupdated = nameupdated + "\n" + name;
+                if (name == null || name == "" || name == text || typeof(name) == undefined){}else{
+        nameupdated += name + "\n";
 		}
 	}
+  nameupdated = nameupdated.replace(/^\s+|\s+$/g, '');
+  console.log(nameupdated)
 	$('#namesbox').val("");
   $('#namesbox').val(nameupdated);
   $('#result1').html("Removed");
@@ -373,7 +268,7 @@ function removevictim(){
   });
   $("div").remove(".name");
   $("div").remove(".extra");
-  $('#headline').text('OK, done! Let\'s see who is next? Just click "GO!" button for next roll.');
+  $('#headline').text('OK, done! Let\'s see what video is next? Just click "GO!" button for next roll.');
 }
 
 </script>
