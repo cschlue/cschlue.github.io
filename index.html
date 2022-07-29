@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Random Video Picker</title>
+  <title>Random Link Picker</title>
 
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/foundation.css" />
@@ -31,7 +31,7 @@ body { background:#F1C40F url(img/bg-noise-orange.png); }
 	<div class="row">
 		<div class="large-12 columns" style="padding-top:50px;background:#111 url(img/header-bg.png) repeat-x center top;z-index:20;">
 		<ul class="button-group even-3">
-			<li><button class="button" id="list" onclick="namelist();">Video List</button></li>
+			<li><button class="button" id="list" onclick="namelist();">Link List</button></li>
 			<li><button class="button" id="save" onclick="save();">Save &amp; Update</button></li>
 			<li><button class="success button" id="go" onclick="go();">GO!</button></li>
     </ul>
@@ -41,7 +41,7 @@ body { background:#F1C40F url(img/bg-noise-orange.png); }
 
 	<div class="row">
 		<div class="large-12 columns">
-			<h3 style="text-align:center;margin-top:30px;" id="headline">What video is next?!?!</h3>
+			<h3 style="text-align:center;margin-top:30px;" id="headline">What link is next?!?!</h3>
 			
       <div id="popdown">
       <div id="names" class="inbox"><textarea name="namesbox" id="namesbox"></textarea></div>
@@ -64,42 +64,116 @@ body { background:#F1C40F url(img/bg-noise-orange.png); }
   
 <script>
 var text;
-var names = new Array("https://www.youtube.com/watch?v=iENQXIQ8wH0",
-"https://youtu.be/48TewJlc6BA",
-"https://youtu.be/m_MaJDK3VNE",
-"https://youtu.be/6rTzaDEk9Bo",
-"https://www.youtube.com/watch?v=nwdzGBG-0dw",
-"https://www.youtube.com/watch?v=U80ebi4AKgs",
-"https://www.youtube.com/watch?v=NKZ2rr4XMTA",
-"https://youtu.be/6rTzaDEk9Bo",
-"https://youtu.be/X9gYkLX53L4",
-"https://youtu.be/4GgaWOpdjNw",
-"https://youtu.be/xffOCZYX6F8",
-"https://youtu.be/2dvI2m1_6_s",
-"https://www.youtube.com/watch?v=Lxp_3000h_U",
-"https://www.youtube.com/watch?v=TcIhL1LZP4g",
-"https://www.youtube.com/watch?v=1VM2eLhvsSM",
-"https://www.youtube.com/watch?v=S2nBBMbjS8w",
-"https://youtu.be/RKWEYzj79S0",
-"https://youtu.be/o6F4GtyRfto",
-"https://youtu.be/WHtgIslP5Ss",
-"https://youtu.be/j5zVn2qKVNE",
-"https://youtu.be/0IobpIKshr8",
-"https://youtu.be/WkavReH4LE0",
-"https://youtu.be/h0sxwGlTLWw",
-"https://youtu.be/ruEfQ-AA1Uo",
-"https://youtu.be/1UM3JpcBHzY",
-"https://www.youtube.com/watch?v=_KkR8lZjiq0",
-"https://www.youtube.com/watch?v=0Gkqzxss8Ss",
-"https://www.youtube.com/watch?v=HjPv1xNx9TA",
-"https://www.youtube.com/watch?v=WcYDse5MFGc",
-"https://www.youtube.com/watch?v=7aXLyZIfDAE",
-"https://www.youtube.com/watch?v=7Gt0uaxf-Uo",
-"https://www.youtube.com/watch?v=mCd8QjxapXA",
-"https://www.youtube.com/watch?v=so8lNYggnaw",
-"https://www.youtube.com/watch?v=Bpol6LDuJbU",
-"https://www.youtube.com/watch?v=rCwn1NTK-50"
-);
+var names = new Array("https://www.reddit.com/r/DiWHY/comments/w6tx2h/my_dads_razor/",
+"https://www.reddit.com/r/DiWHY/comments/w778f1/i_had_to_stop_and_share_this_one/",
+"https://www.reddit.com/r/DiWHY/comments/w7cq8n/good_way_to_break_a_toe/",
+"https://www.reddit.com/r/DiWHY/comments/w5xe2f/fan_but_with_more_aero/",
+"https://imgur.com/a/Hftj62F",
+"https://www.reddit.com/r/DiWHY/comments/w4flx9/i_guess_beaded_door_curtains_arent_as_cool_as/",
+"https://www.reddit.com/r/DiWHY/comments/w4einy/ac_broke_during_a_heatwave_in_texas_i_was/",
+"https://www.reddit.com/r/DiWHY/comments/w4nwf7/please_dont_ask_me_where_i_found_this/",
+"https://www.reddit.com/r/DiWHY/comments/w4prr8/jurtains/",
+"https://www.reddit.com/r/DiWHY/comments/w4flvn/one_of_gods_creations/",
+"https://www.reddit.com/r/DiWHY/comments/w46s1q/ive_invented_what_im_calling_the_lazest_boy/",
+"https://www.reddit.com/r/DiWHY/comments/w21iyz/tesla_of_lawn_mowers/",
+"https://www.reddit.com/r/DiWHY/comments/w21mem/a_bike_seat_to_deter_thieves_can_also_use_to/",
+"https://www.reddit.com/r/DiWHY/comments/w1l7kz/landlords_sprinkler_system/",
+"https://www.reddit.com/r/DiWHY/comments/w1pdw5/toys_r_us_on_wheels/",
+"https://www.reddit.com/r/DiWHY/comments/w1ebx2/fitting_a_drawer_in_a_wall_i_mean_its_cool_but/",
+"https://www.reddit.com/r/DiWHY/comments/w18gq8/i_see_your_minivan_truck_and_raise_you_a_scion_xb/",
+"https://www.reddit.com/r/DiWHY/comments/w199is/just_go_buy_a_truck_already/",
+"https://www.reddit.com/r/DiWHY/comments/w0wcj3/when_you_need_a_truck_and_have_a_minivan/",
+"https://www.reddit.com/r/DiWHY/comments/w03a3z/im_at_a_loss_for_words/",
+"https://www.reddit.com/r/DiWHY/comments/w07z2g/i_mean_cmon_man/",
+"https://www.reddit.com/r/DiWHY/comments/vy83c4/this_bathroom/",
+"https://www.reddit.com/r/DiWHY/comments/vx8nno/this_fucking_monstrosity_yes_that_is_one_vehicle/",
+"https://www.reddit.com/r/DiWHY/comments/vx6cby/tesla_charging_cable_mount/",
+"https://www.reddit.com/r/DiWHY/comments/vx03n4/what_are_we_cooling_the_outside_my_mom/",
+"https://www.reddit.com/r/DiWHY/comments/vwb5yj/shouldnt_be_any_issue_here/",
+"https://www.reddit.com/r/DiWHY/comments/vv2u29/driftwood_lamps/",
+"https://www.reddit.com/r/DiWHY/comments/vtwi6v/bottle_opener/",
+"https://www.reddit.com/r/DiWHY/comments/vu5oo5/max_ac_in_the_desert/",
+"https://www.reddit.com/r/DiWHY/comments/vt3lvg/this_one_is_a_must/",
+"https://www.reddit.com/r/DiWHY/comments/vsqw3n/diy_chopping_machine/",
+"https://www.reddit.com/r/DiWHY/comments/vrsm7d/ever_heard_of_a_hammock_or_a_tent/",
+"https://www.reddit.com/r/DiWHY/comments/vqvmtu/ive_heard_of_pallet_board_walls_but_this_is/",
+"https://www.reddit.com/r/DiWHY/comments/vqse7c/probably_out_of_sync_but_why_in_the_first_place/",
+"https://www.reddit.com/r/DiWHY/comments/vqmtbe/found_in_the_wild_on_fb_marketplace_a_succulent/",
+"https://www.reddit.com/r/DiWHY/comments/vomd9a/disrespectful_colander/",
+"https://www.reddit.com/r/DiWHY/comments/vniu4c/when_you_have_to_3d_print_on_the_go/",
+"https://www.reddit.com/r/DiWHY/comments/vmxeqg/ooh_boy/",
+"https://www.reddit.com/r/DiWHY/comments/vj9o4x/anything_for_the_aesthetic/",
+"https://www.reddit.com/r/DiWHY/comments/vi5bzy/disco_infuckno/",
+"https://www.reddit.com/r/DiWHY/comments/vgww98/not_so_sure_worthy_is_the_right_word/",
+"https://www.reddit.com/r/DiWHY/comments/vg5o6k/this_is_something_else/",
+"https://www.reddit.com/r/DiWHY/comments/vels3q/kitchen_sink_placement/",
+"https://www.reddit.com/r/DiWHY/comments/velmp7/custom_car_hood/",
+"https://www.reddit.com/r/DiWHY/comments/vdyfl9/grills_gone_wild/",
+"https://www.reddit.com/r/DiWHY/comments/vcpybl/thanks_i_hate_cloud_computing/",
+"https://www.reddit.com/r/DiWHY/comments/vanzqn/a_shrek_incense_holder/",
+"https://www.reddit.com/r/DiWHY/comments/vatgek/the_perfect_finishing_touch_to_a_play_room/",
+"https://www.reddit.com/r/DiWHY/comments/v7jp3s/modifying/",
+"https://www.reddit.com/r/wirklichgutefrage/comments/v7i21w/mode_design/",
+"https://www.reddit.com/r/DiWHY/comments/v5oigm/bruh_just_why/",
+"https://www.reddit.com/r/DiWHY/comments/v5e2qj/what_caliber_does_this_even_shoot/",
+"https://www.reddit.com/r/DiWHY/comments/v4aofa/take_a_ride_on_the_death_swing/",
+"https://www.reddit.com/r/DiWHY/comments/v4azw4/to_fix_a_tire/",
+"https://www.reddit.com/r/DiWHY/comments/v07zmo/the_belt_buckle/",
+"https://www.reddit.com/r/DiWHY/comments/uzm4yc/diwhy_laptop_cooling_solution/",
+"https://www.reddit.com/r/TIHI/comments/w6tjet/thanks_i_hate_the_jeallow/",
+"https://www.reddit.com/r/TIHI/comments/w5f5q6/thanks_i_hate_oogie_boogie_at_disneyland/",
+"https://www.reddit.com/r/TIHI/comments/w51kaj/thanks_i_hate_ice_jewelry/",
+"https://www.reddit.com/r/TIHI/comments/w4xyth/thanks_i_hate_pierced_baby_face_head_planters/",
+"https://youtu.be/CfYhlH01aOA",
+"https://www.reddit.com/r/Justrolledintotheshop/comments/rkreh9/customer_bought_wheels_and_tires_online_after/",
+"https://www.reddit.com/r/Justrolledintotheshop/comments/rnm51h/a_2021_recap_of_some_of_the_good_bad_and_ugly/",
+"https://www.reddit.com/r/Justrolledintotheshop/comments/qxm1nw/boss_tells_new_guy_to_paint_the_block/",
+"https://www.reddit.com/r/Justrolledintotheshop/comments/gf93ei/if_you_cant_tell_this_truck_is_a_ford/",
+"https://www.reddit.com/r/Justrolledintotheshop/comments/nroaz5/my_new_sway_bar_was_just_delivered/",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-22-62874c09c702b__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6284e6b2c5f16_lncy22k97pl71__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6283853b7a88f_8os6hnf3ei751__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6284dfb71aba7_29iZ4Rl__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-6-6290d5ffc08bc__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-15-6290dc1c236fb__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6284e712681ca_eadtai9fxga71__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/1266395774306353158-png__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-163-628b2e69c773a__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-1-62873db1c362e__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-11-62874376e7d8e__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/628e475ce2007_7sdiql8b3tz11__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6286288b168a3_6wt8dork3d351__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-8-6290d6d394e28__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-44-6294b68303115__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-180-628b34aae5ada__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-11-6290d942df65c__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-161-628b2db909533__700.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-791__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-54__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-641__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-49__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-421__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-513__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-581__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-881__605.jpg",
+"https://autowise.com/wp-content/uploads/2015/11/1412789170112_wps_18_HILARIOUS_EXAMPLES_OF_SHO-e1447197672967.jpg",
+"https://autowise.com/wp-content/uploads/2015/11/exhaust-e1447204645811.jpg",
+"https://i.chzbgr.com/full/9575195904/hEB694609/chair-can-pass-salt-before-falls-into-trough-again-please",
+"https://i.chzbgr.com/full/9575196416/h43F09A69/shoe",
+"https://i.chzbgr.com/full/9575232512/h33F050C7/person-nonc-portable-glory-hole-90-900",
+"https://i.chzbgr.com/full/9575196160/h5E3DA843/cat-stanley-door-is-my-greatest-innovation-dont-tell-my-landlord",
+"https://i.chzbgr.com/full/9575224064/hB757B6F8/pants",
+"https://i.chzbgr.com/full/9575226880/h1DF61E59/food",
+"https://i.chzbgr.com/full/9575229952/h814C67AE/packaged-goods",
+"https://i.chzbgr.com/full/9575224576/h1E661487/lighting",
+"https://cdn.guff.com/site_2/media/33000/32235/items/a163d351b96dae86e3363dcc.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2020/03/B1fYqSYp9dD-png__700.jpg",
+"https://cdn.guff.com/site_2/media/33000/32235/items/750ba81b8939ba927cd64422.jpg",
+"https://youtu.be/yl0OcGIvLuw",
+"https://www.reddit.com/r/ItemShop/comments/t8sjxw/flesh_controller_allows_the_user_to_control_alive/",
+"https://www.etsy.com/listing/922197198/handmade-iphone-case-blood-eyeball-100",
+"https://youtu.be/-qSJcKoUwWs?t=4",
+"https://youtu.be/mizSXU3hXx4");
 
 function reset(){
   // re-enable go button
@@ -111,42 +185,116 @@ function reset(){
     namesbreak = namesbreak.replace(/%20/g,' ');          
     }
     else   {
-      var names = new Array("https://www.youtube.com/watch?v=iENQXIQ8wH0",
-"https://youtu.be/48TewJlc6BA",
-"https://youtu.be/m_MaJDK3VNE",
-"https://youtu.be/6rTzaDEk9Bo",
-"https://www.youtube.com/watch?v=nwdzGBG-0dw",
-"https://www.youtube.com/watch?v=U80ebi4AKgs",
-"https://www.youtube.com/watch?v=NKZ2rr4XMTA",
-"https://youtu.be/6rTzaDEk9Bo",
-"https://youtu.be/X9gYkLX53L4",
-"https://youtu.be/4GgaWOpdjNw",
-"https://youtu.be/xffOCZYX6F8",
-"https://youtu.be/2dvI2m1_6_s",
-"https://www.youtube.com/watch?v=Lxp_3000h_U",
-"https://www.youtube.com/watch?v=TcIhL1LZP4g",
-"https://www.youtube.com/watch?v=1VM2eLhvsSM",
-"https://www.youtube.com/watch?v=S2nBBMbjS8w",
-"https://youtu.be/RKWEYzj79S0",
-"https://youtu.be/o6F4GtyRfto",
-"https://youtu.be/WHtgIslP5Ss",
-"https://youtu.be/j5zVn2qKVNE",
-"https://youtu.be/0IobpIKshr8",
-"https://youtu.be/WkavReH4LE0",
-"https://youtu.be/h0sxwGlTLWw",
-"https://youtu.be/ruEfQ-AA1Uo",
-"https://youtu.be/1UM3JpcBHzY",
-"https://www.youtube.com/watch?v=_KkR8lZjiq0",
-"https://www.youtube.com/watch?v=0Gkqzxss8Ss",
-"https://www.youtube.com/watch?v=HjPv1xNx9TA",
-"https://www.youtube.com/watch?v=WcYDse5MFGc",
-"https://www.youtube.com/watch?v=7aXLyZIfDAE",
-"https://www.youtube.com/watch?v=7Gt0uaxf-Uo",
-"https://www.youtube.com/watch?v=mCd8QjxapXA",
-"https://www.youtube.com/watch?v=so8lNYggnaw",
-"https://www.youtube.com/watch?v=Bpol6LDuJbU",
-"https://www.youtube.com/watch?v=rCwn1NTK-50"
-);
+      var names = new Array("https://www.reddit.com/r/DiWHY/comments/w6tx2h/my_dads_razor/",
+"https://www.reddit.com/r/DiWHY/comments/w778f1/i_had_to_stop_and_share_this_one/",
+"https://www.reddit.com/r/DiWHY/comments/w7cq8n/good_way_to_break_a_toe/",
+"https://www.reddit.com/r/DiWHY/comments/w5xe2f/fan_but_with_more_aero/",
+"https://imgur.com/a/Hftj62F",
+"https://www.reddit.com/r/DiWHY/comments/w4flx9/i_guess_beaded_door_curtains_arent_as_cool_as/",
+"https://www.reddit.com/r/DiWHY/comments/w4einy/ac_broke_during_a_heatwave_in_texas_i_was/",
+"https://www.reddit.com/r/DiWHY/comments/w4nwf7/please_dont_ask_me_where_i_found_this/",
+"https://www.reddit.com/r/DiWHY/comments/w4prr8/jurtains/",
+"https://www.reddit.com/r/DiWHY/comments/w4flvn/one_of_gods_creations/",
+"https://www.reddit.com/r/DiWHY/comments/w46s1q/ive_invented_what_im_calling_the_lazest_boy/",
+"https://www.reddit.com/r/DiWHY/comments/w21iyz/tesla_of_lawn_mowers/",
+"https://www.reddit.com/r/DiWHY/comments/w21mem/a_bike_seat_to_deter_thieves_can_also_use_to/",
+"https://www.reddit.com/r/DiWHY/comments/w1l7kz/landlords_sprinkler_system/",
+"https://www.reddit.com/r/DiWHY/comments/w1pdw5/toys_r_us_on_wheels/",
+"https://www.reddit.com/r/DiWHY/comments/w1ebx2/fitting_a_drawer_in_a_wall_i_mean_its_cool_but/",
+"https://www.reddit.com/r/DiWHY/comments/w18gq8/i_see_your_minivan_truck_and_raise_you_a_scion_xb/",
+"https://www.reddit.com/r/DiWHY/comments/w199is/just_go_buy_a_truck_already/",
+"https://www.reddit.com/r/DiWHY/comments/w0wcj3/when_you_need_a_truck_and_have_a_minivan/",
+"https://www.reddit.com/r/DiWHY/comments/w03a3z/im_at_a_loss_for_words/",
+"https://www.reddit.com/r/DiWHY/comments/w07z2g/i_mean_cmon_man/",
+"https://www.reddit.com/r/DiWHY/comments/vy83c4/this_bathroom/",
+"https://www.reddit.com/r/DiWHY/comments/vx8nno/this_fucking_monstrosity_yes_that_is_one_vehicle/",
+"https://www.reddit.com/r/DiWHY/comments/vx6cby/tesla_charging_cable_mount/",
+"https://www.reddit.com/r/DiWHY/comments/vx03n4/what_are_we_cooling_the_outside_my_mom/",
+"https://www.reddit.com/r/DiWHY/comments/vwb5yj/shouldnt_be_any_issue_here/",
+"https://www.reddit.com/r/DiWHY/comments/vv2u29/driftwood_lamps/",
+"https://www.reddit.com/r/DiWHY/comments/vtwi6v/bottle_opener/",
+"https://www.reddit.com/r/DiWHY/comments/vu5oo5/max_ac_in_the_desert/",
+"https://www.reddit.com/r/DiWHY/comments/vt3lvg/this_one_is_a_must/",
+"https://www.reddit.com/r/DiWHY/comments/vsqw3n/diy_chopping_machine/",
+"https://www.reddit.com/r/DiWHY/comments/vrsm7d/ever_heard_of_a_hammock_or_a_tent/",
+"https://www.reddit.com/r/DiWHY/comments/vqvmtu/ive_heard_of_pallet_board_walls_but_this_is/",
+"https://www.reddit.com/r/DiWHY/comments/vqse7c/probably_out_of_sync_but_why_in_the_first_place/",
+"https://www.reddit.com/r/DiWHY/comments/vqmtbe/found_in_the_wild_on_fb_marketplace_a_succulent/",
+"https://www.reddit.com/r/DiWHY/comments/vomd9a/disrespectful_colander/",
+"https://www.reddit.com/r/DiWHY/comments/vniu4c/when_you_have_to_3d_print_on_the_go/",
+"https://www.reddit.com/r/DiWHY/comments/vmxeqg/ooh_boy/",
+"https://www.reddit.com/r/DiWHY/comments/vj9o4x/anything_for_the_aesthetic/",
+"https://www.reddit.com/r/DiWHY/comments/vi5bzy/disco_infuckno/",
+"https://www.reddit.com/r/DiWHY/comments/vgww98/not_so_sure_worthy_is_the_right_word/",
+"https://www.reddit.com/r/DiWHY/comments/vg5o6k/this_is_something_else/",
+"https://www.reddit.com/r/DiWHY/comments/vels3q/kitchen_sink_placement/",
+"https://www.reddit.com/r/DiWHY/comments/velmp7/custom_car_hood/",
+"https://www.reddit.com/r/DiWHY/comments/vdyfl9/grills_gone_wild/",
+"https://www.reddit.com/r/DiWHY/comments/vcpybl/thanks_i_hate_cloud_computing/",
+"https://www.reddit.com/r/DiWHY/comments/vanzqn/a_shrek_incense_holder/",
+"https://www.reddit.com/r/DiWHY/comments/vatgek/the_perfect_finishing_touch_to_a_play_room/",
+"https://www.reddit.com/r/DiWHY/comments/v7jp3s/modifying/",
+"https://www.reddit.com/r/wirklichgutefrage/comments/v7i21w/mode_design/",
+"https://www.reddit.com/r/DiWHY/comments/v5oigm/bruh_just_why/",
+"https://www.reddit.com/r/DiWHY/comments/v5e2qj/what_caliber_does_this_even_shoot/",
+"https://www.reddit.com/r/DiWHY/comments/v4aofa/take_a_ride_on_the_death_swing/",
+"https://www.reddit.com/r/DiWHY/comments/v4azw4/to_fix_a_tire/",
+"https://www.reddit.com/r/DiWHY/comments/v07zmo/the_belt_buckle/",
+"https://www.reddit.com/r/DiWHY/comments/uzm4yc/diwhy_laptop_cooling_solution/",
+"https://www.reddit.com/r/TIHI/comments/w6tjet/thanks_i_hate_the_jeallow/",
+"https://www.reddit.com/r/TIHI/comments/w5f5q6/thanks_i_hate_oogie_boogie_at_disneyland/",
+"https://www.reddit.com/r/TIHI/comments/w51kaj/thanks_i_hate_ice_jewelry/",
+"https://www.reddit.com/r/TIHI/comments/w4xyth/thanks_i_hate_pierced_baby_face_head_planters/",
+"https://youtu.be/CfYhlH01aOA",
+"https://www.reddit.com/r/Justrolledintotheshop/comments/rkreh9/customer_bought_wheels_and_tires_online_after/",
+"https://www.reddit.com/r/Justrolledintotheshop/comments/rnm51h/a_2021_recap_of_some_of_the_good_bad_and_ugly/",
+"https://www.reddit.com/r/Justrolledintotheshop/comments/qxm1nw/boss_tells_new_guy_to_paint_the_block/",
+"https://www.reddit.com/r/Justrolledintotheshop/comments/gf93ei/if_you_cant_tell_this_truck_is_a_ford/",
+"https://www.reddit.com/r/Justrolledintotheshop/comments/nroaz5/my_new_sway_bar_was_just_delivered/",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-22-62874c09c702b__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6284e6b2c5f16_lncy22k97pl71__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6283853b7a88f_8os6hnf3ei751__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6284dfb71aba7_29iZ4Rl__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-6-6290d5ffc08bc__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-15-6290dc1c236fb__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6284e712681ca_eadtai9fxga71__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/1266395774306353158-png__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-163-628b2e69c773a__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-1-62873db1c362e__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-11-62874376e7d8e__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/628e475ce2007_7sdiql8b3tz11__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6286288b168a3_6wt8dork3d351__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-8-6290d6d394e28__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-44-6294b68303115__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-180-628b34aae5ada__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-11-6290d942df65c__700.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2022/05/funny-home-improvement-fails-161-628b2db909533__700.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-791__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-54__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-641__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-49__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-421__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-513__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-581__605.jpg",
+"https://static.boredpanda.com/blog/wp-content/uploads/2016/03/trust-me-i-am-an-engineer-funny-repairs-fails-881__605.jpg",
+"https://autowise.com/wp-content/uploads/2015/11/1412789170112_wps_18_HILARIOUS_EXAMPLES_OF_SHO-e1447197672967.jpg",
+"https://autowise.com/wp-content/uploads/2015/11/exhaust-e1447204645811.jpg",
+"https://i.chzbgr.com/full/9575195904/hEB694609/chair-can-pass-salt-before-falls-into-trough-again-please",
+"https://i.chzbgr.com/full/9575196416/h43F09A69/shoe",
+"https://i.chzbgr.com/full/9575232512/h33F050C7/person-nonc-portable-glory-hole-90-900",
+"https://i.chzbgr.com/full/9575196160/h5E3DA843/cat-stanley-door-is-my-greatest-innovation-dont-tell-my-landlord",
+"https://i.chzbgr.com/full/9575224064/hB757B6F8/pants",
+"https://i.chzbgr.com/full/9575226880/h1DF61E59/food",
+"https://i.chzbgr.com/full/9575229952/h814C67AE/packaged-goods",
+"https://i.chzbgr.com/full/9575224576/h1E661487/lighting",
+"https://cdn.guff.com/site_2/media/33000/32235/items/a163d351b96dae86e3363dcc.jpg",
+"https://www.boredpanda.com/blog/wp-content/uploads/2020/03/B1fYqSYp9dD-png__700.jpg",
+"https://cdn.guff.com/site_2/media/33000/32235/items/750ba81b8939ba927cd64422.jpg",
+"https://youtu.be/yl0OcGIvLuw",
+"https://www.reddit.com/r/ItemShop/comments/t8sjxw/flesh_controller_allows_the_user_to_control_alive/",
+"https://www.etsy.com/listing/922197198/handmade-iphone-case-blood-eyeball-100",
+"https://youtu.be/-qSJcKoUwWs?t=4",
+"https://youtu.be/mizSXU3hXx4");
     for(var i in names){
       name = names[i];
       if (name == "" || name == " " || name == "" || typeof(name) == undefined){}else{
@@ -182,7 +330,7 @@ function save(){
         savenames = $("#namesbox").val();
         savenames = savenames.replace(/\n\r?/g, '101');
         $('#headline').fadeOut();
-        $('#headline').text('The video list is saved and updated.').fadeIn();
+        $('#headline').text('The link list is saved and updated.').fadeIn();
         $("#names").show();
         $('#namesbox').attr('disabled','disabled');
 }
@@ -190,7 +338,7 @@ function save(){
 function namelist(){
         $("#varnote").hide();
         $('#namesbox').removeAttr('disabled','disabled');
-        $('#headline').text('Videos');
+        $('#headline').text('Links');
         $("#popdown").show();
         $("#values").hide();
         $("#names").show();
@@ -298,7 +446,7 @@ function removevictim(){
   });
   $("div").remove(".name");
   $("div").remove(".extra");
-  $('#headline').text('OK, done! Let\'s see what video is next? Just click "GO!" button for next roll.');
+  $('#headline').text('OK, done! Let\'s see what Link is next? Just click "GO!" button for next roll.');
 }
 
 </script>
